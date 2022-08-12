@@ -16,133 +16,133 @@
 #include <string>
 
 namespace ANSI {
-    extern const std::string ESC = "\x1B{}";
-    extern const std::string CSI = "\x9B{}"; // Alternative: `ESC[` | These aren't needed, just here because they are an alternative way to do escape codes
-    extern const std::string DCS = "\x90{}"; // Alternative: `ESCP` | These aren't needed, just here because they are an alternative way to do escape codes
-    extern const std::string OSC = "\x9D{}"; // Alternative: `ESC]` | These aren't needed, just here because they are an alternative way to do escape codes
+    extern constexpr char *ESC = (char*)"\x1B{}";
+    extern constexpr char *CSI = (char*)"\x9B{}"; // Alternative: `ESC[` | These aren't needed, just here because they are an alternative way to do escape codes
+    extern constexpr char *DCS = (char*)"\x90{}"; // Alternative: `ESCP` | These aren't needed, just here because they are an alternative way to do escape codes
+    extern constexpr char *OSC = (char*)"\x9D{}"; // Alternative: `ESC]` | These aren't needed, just here because they are an alternative way to do escape codes
 
     namespace codes {
     // General codes
-        extern const std::string BELL            = "\x07";
-        extern const std::string BACKSPACE       = "\x08";
-        extern const std::string HORIZONTAL_TAB  = "\x09";
-        extern const std::string LINE_FEED       = "\x0A";
-        extern const std::string VERTICAL_TAB    = "\x0B";
-        extern const std::string FORM_FEED       = "\x0C";
-        extern const std::string CARRIAGE_RETURN = "\x0D";
-        extern const std::string DELETE          = "\x7F";
+        extern constexpr char *BELL            = (char*)"\x07";
+        extern constexpr char *BACKSPACE       = (char*)"\x08";
+        extern constexpr char *HORIZONTAL_TAB  = (char*)"\x09";
+        extern constexpr char *LINE_FEED       = (char*)"\x0A";
+        extern constexpr char *VERTICAL_TAB    = (char*)"\x0B";
+        extern constexpr char *FORM_FEED       = (char*)"\x0C";
+        extern constexpr char *CARRIAGE_RETURN = (char*)"\x0D";
+        extern constexpr char *DELETE          = (char*)"\x7F";
 
     // Cursor control
-        extern const std::string HOME_CURSOR            = "[H";
-        extern const std::string MOVE_CURSOR_POS        = "[{};{}H";
-        extern const std::string MOVE_CURSOR_UP         = "[{}A";
-        extern const std::string MOVE_CURSOR_DOWN       = "[{}B";
-        extern const std::string MOVE_CURSOR_RIGHT      = "[{}C";
-        extern const std::string MOVE_CURSOR_LEFT       = "[{}D";
-        extern const std::string MOVE_CURSOR_DOWN_BEGIN = "[{}E";
-        extern const std::string MOVE_CURSOR_UP_BEGIN   = "[{}F";
-        extern const std::string MOVE_CURSOR_COLUMN     = "[{}G";
-        /* extern const std::string REQUEST_CURSOR_POS     = "6n"; */ // Enable when you find a way to actually do this
-        extern const std::string MOVE_CURSOR_ONE_UP     = "M";
-        extern const std::string SAVE_CURSOR_POS_DEC    = "7";  // DEC ONLY
-        extern const std::string RESTORE_CURSOR_POS_DEC = "8";  // DEC ONLY
-        extern const std::string SAVE_CURSOR_POS_SOC    = "[s"; // SCO ONLY
-        extern const std::string RESTORE_CURSOR_POS_SOC = "[u"; // SCO ONLY
+        extern constexpr char *HOME_CURSOR            = (char*)"[H";
+        extern constexpr char *MOVE_CURSOR_POS        = (char*)"[{};{}H";
+        extern constexpr char *MOVE_CURSOR_UP         = (char*)"[{}A";
+        extern constexpr char *MOVE_CURSOR_DOWN       = (char*)"[{}B";
+        extern constexpr char *MOVE_CURSOR_RIGHT      = (char*)"[{}C";
+        extern constexpr char *MOVE_CURSOR_LEFT       = (char*)"[{}D";
+        extern constexpr char *MOVE_CURSOR_DOWN_BEGIN = (char*)"[{}E";
+        extern constexpr char *MOVE_CURSOR_UP_BEGIN   = (char*)"[{}F";
+        extern constexpr char *MOVE_CURSOR_COLUMN     = (char*)"[{}G";
+        /* extern constexpr char *REQUEST_CURSOR_POS     = (char*)"6n"; */ // Enable when you find a way to actually do this
+        extern constexpr char *MOVE_CURSOR_ONE_UP     = (char*)"M";
+        extern constexpr char *SAVE_CURSOR_POS_DEC    = (char*)"7";  // DEC ONLY
+        extern constexpr char *RESTORE_CURSOR_POS_DEC = (char*)"8";  // DEC ONLY
+        extern constexpr char *SAVE_CURSOR_POS_SOC    = (char*)"[s"; // SCO ONLY
+        extern constexpr char *RESTORE_CURSOR_POS_SOC = (char*)"[u"; // SCO ONLY
 
     // Erase funcs
-        extern const std::string ERASE_CURSOR_TO_END     = "[0J";
-        extern const std::string ERASE_CURSOR_TO_START   = "[1J";
-        extern const std::string ERASE_SCREEN            = "[2J";
-        extern const std::string ERASE_CURSOR_TO_END     = "[0J";
-        extern const std::string ERASE_CURSOR_TO_START_K = "[1K";
-        extern const std::string ERASE_SCREEN_K          = "[2K";
-        extern const std::string ERASE_SAVED_LINES_K     = "[3K";
+        extern constexpr char *ERASE_CURSOR_TO_END     = (char*)"[0J";
+        extern constexpr char *ERASE_CURSOR_TO_START   = (char*)"[1J";
+        extern constexpr char *ERASE_SCREEN            = (char*)"[2J";
+        extern constexpr char *ERASE_SAVED_LINES       = (char*)"[3J";
+        extern constexpr char *ERASE_CURSOR_TO_START_K = (char*)"[1K";
+        extern constexpr char *ERASE_SCREEN_K          = (char*)"[2K";
+        extern constexpr char *ERASE_SAVED_LINES_K     = (char*)"[3K";
 
     // Graphics
-        extern const std::string GRAPHICS_RESET_ALL                = "[0m";
-        extern const std::string GRAPHICS_MODES_SET                = "[1;34{}m";
-        extern const std::string GRAPHICS_MODE_BOLD_ON             = ";1";
-        extern const std::string GRAPHICS_MODE_BOLD_OFF            = ";22";
-        extern const std::string GRAPHICS_MODE_DIM_ON              = ";2";
-        extern const std::string GRAPHICS_MODE_DIM_OFF             = ";22";
-        extern const std::string GRAPHICS_MODE_ITALIC_ON           = ";3";
-        extern const std::string GRAPHICS_MODE_ITALIC_OFF          = ";23";
-        extern const std::string GRAPHICS_MODE_UNDERLINE_ON        = ";4";
-        extern const std::string GRAPHICS_MODE_DOUBLE_UNDERLINE_ON = ";21";
-        extern const std::string GRAPHICS_MODE_UNDERLINE_OFF       = ";24";
-        extern const std::string GRAPHICS_MODE_BLINKING_ON         = ";5";  // Seemingly rarely supported, normally appears as another modifier
-        extern const std::string GRAPHICS_MODE_BLINKING_OFF        = ";25"; // Seemingly rarely supported, normally appears as another modifier
-        extern const std::string GRAPHICS_MODE_INVERTED_ON         = ";7";
-        extern const std::string GRAPHICS_MODE_INVERTED_OFF        = ";27";
-        extern const std::string GRAPHICS_MODE_HIDDEN_ON           = ";8";
-        extern const std::string GRAPHICS_MODE_HIDDEN_OFF          = ";28";
-        extern const std::string GRAPHICS_MODE_STRIKETHROUGH_ON    = ";9";
-        extern const std::string GRAPHICS_MODE_STRIKETHROUGH_OFF   = ";29";
-        extern const std::string COLOR_BLACK_FG                    = ";30";
-        extern const std::string COLOR_RED_FG                      = ";31";
-        extern const std::string COLOR_GREEN_FG                    = ";32";
-        extern const std::string COLOR_YELLOW_FG                   = ";33";
-        extern const std::string COLOR_BLUE_FG                     = ";34";
-        extern const std::string COLOR_MAGENTA_FG                  = ";35";
-        extern const std::string COLOR_CYAN_FG                     = ";36";
-        extern const std::string COLOR_WHITE_FG                    = ";37";
-        extern const std::string COLOR_BRIGHT_BLACK_FG             = ";90";
-        extern const std::string COLOR_BRIGHT_RED_FG               = ";91";
-        extern const std::string COLOR_BRIGHT_GREEN_FG             = ";92";
-        extern const std::string COLOR_BRIGHT_YELLOW_FG            = ";93";
-        extern const std::string COLOR_BRIGHT_BLUE_FG              = ";94";
-        extern const std::string COLOR_BRIGHT_MAGENTA_FG           = ";95";
-        extern const std::string COLOR_BRIGHT_CYAN_FG              = ";96";
-        extern const std::string COLOR_BRIGHT_WHITE_FG             = ";97";
-        extern const std::string COLOR_FG_RESET                    = ";39";
+        extern constexpr char *GRAPHICS_RESET_ALL                = (char*)"[0m";
+        extern constexpr char *GRAPHICS_MODES_SET                = (char*)"[1;34{}m";
+        extern constexpr char *GRAPHICS_MODE_BOLD_ON             = (char*)";1";
+        extern constexpr char *GRAPHICS_MODE_BOLD_OFF            = (char*)";22";
+        extern constexpr char *GRAPHICS_MODE_DIM_ON              = (char*)";2";
+        extern constexpr char *GRAPHICS_MODE_DIM_OFF             = (char*)";22";
+        extern constexpr char *GRAPHICS_MODE_ITALIC_ON           = (char*)";3";
+        extern constexpr char *GRAPHICS_MODE_ITALIC_OFF          = (char*)";23";
+        extern constexpr char *GRAPHICS_MODE_UNDERLINE_ON        = (char*)";4";
+        extern constexpr char *GRAPHICS_MODE_DOUBLE_UNDERLINE_ON = (char*)";21";
+        extern constexpr char *GRAPHICS_MODE_UNDERLINE_OFF       = (char*)";24";
+        extern constexpr char *GRAPHICS_MODE_BLINKING_ON         = (char*)";5";  // Seemingly rarely supported, normally appears as another modifier
+        extern constexpr char *GRAPHICS_MODE_BLINKING_OFF        = (char*)";25"; // Seemingly rarely supported, normally appears as another modifier
+        extern constexpr char *GRAPHICS_MODE_INVERTED_ON         = (char*)";7";
+        extern constexpr char *GRAPHICS_MODE_INVERTED_OFF        = (char*)";27";
+        extern constexpr char *GRAPHICS_MODE_HIDDEN_ON           = (char*)";8";
+        extern constexpr char *GRAPHICS_MODE_HIDDEN_OFF          = (char*)";28";
+        extern constexpr char *GRAPHICS_MODE_STRIKETHROUGH_ON    = (char*)";9";
+        extern constexpr char *GRAPHICS_MODE_STRIKETHROUGH_OFF   = (char*)";29";
+        extern constexpr char *COLOR_BLACK_FG                    = (char*)";30";
+        extern constexpr char *COLOR_RED_FG                      = (char*)";31";
+        extern constexpr char *COLOR_GREEN_FG                    = (char*)";32";
+        extern constexpr char *COLOR_YELLOW_FG                   = (char*)";33";
+        extern constexpr char *COLOR_BLUE_FG                     = (char*)";34";
+        extern constexpr char *COLOR_MAGENTA_FG                  = (char*)";35";
+        extern constexpr char *COLOR_CYAN_FG                     = (char*)";36";
+        extern constexpr char *COLOR_WHITE_FG                    = (char*)";37";
+        extern constexpr char *COLOR_BRIGHT_BLACK_FG             = (char*)";90";
+        extern constexpr char *COLOR_BRIGHT_RED_FG               = (char*)";91";
+        extern constexpr char *COLOR_BRIGHT_GREEN_FG             = (char*)";92";
+        extern constexpr char *COLOR_BRIGHT_YELLOW_FG            = (char*)";93";
+        extern constexpr char *COLOR_BRIGHT_BLUE_FG              = (char*)";94";
+        extern constexpr char *COLOR_BRIGHT_MAGENTA_FG           = (char*)";95";
+        extern constexpr char *COLOR_BRIGHT_CYAN_FG              = (char*)";96";
+        extern constexpr char *COLOR_BRIGHT_WHITE_FG             = (char*)";97";
+        extern constexpr char *COLOR_FG_RESET                    = (char*)";39";
 
-        extern const std::string COLOR_BLACK_BG                    = ";40";
-        extern const std::string COLOR_RED_BG                      = ";41";
-        extern const std::string COLOR_GREEN_BG                    = ";42";
-        extern const std::string COLOR_YELLOW_BG                   = ";43";
-        extern const std::string COLOR_BLUE_BG                     = ";44";
-        extern const std::string COLOR_MAGENTA_BG                  = ";45";
-        extern const std::string COLOR_CYAN_BG                     = ";46";
-        extern const std::string COLOR_WHITE_BG                    = ";47";
-        extern const std::string COLOR_BRIGHT_BLACK_FG             = ";100";
-        extern const std::string COLOR_BRIGHT_RED_FG               = ";101";
-        extern const std::string COLOR_BRIGHT_GREEN_FG             = ";102";
-        extern const std::string COLOR_BRIGHT_YELLOW_FG            = ";103";
-        extern const std::string COLOR_BRIGHT_BLUE_FG              = ";104";
-        extern const std::string COLOR_BRIGHT_MAGENTA_FG           = ";105";
-        extern const std::string COLOR_BRIGHT_CYAN_FG              = ";106";
-        extern const std::string COLOR_BRIGHT_WHITE_FG             = ";107";
-        extern const std::string COLOR_BG_RESET                    = ";49";
+        extern constexpr char *COLOR_BLACK_BG                    = (char*)";40";
+        extern constexpr char *COLOR_RED_BG                      = (char*)";41";
+        extern constexpr char *COLOR_GREEN_BG                    = (char*)";42";
+        extern constexpr char *COLOR_YELLOW_BG                   = (char*)";43";
+        extern constexpr char *COLOR_BLUE_BG                     = (char*)";44";
+        extern constexpr char *COLOR_MAGENTA_BG                  = (char*)";45";
+        extern constexpr char *COLOR_CYAN_BG                     = (char*)";46";
+        extern constexpr char *COLOR_WHITE_BG                    = (char*)";47";
+        extern constexpr char *COLOR_BRIGHT_BLACK_BG             = (char*)";100";
+        extern constexpr char *COLOR_BRIGHT_RED_BG               = (char*)";101";
+        extern constexpr char *COLOR_BRIGHT_GREEN_BG             = (char*)";102";
+        extern constexpr char *COLOR_BRIGHT_YELLOW_BG            = (char*)";103";
+        extern constexpr char *COLOR_BRIGHT_BLUE_BG              = (char*)";104";
+        extern constexpr char *COLOR_BRIGHT_MAGENTA_BG           = (char*)";105";
+        extern constexpr char *COLOR_BRIGHT_CYAN_BG              = (char*)";106";
+        extern constexpr char *COLOR_BRIGHT_WHITE_BG             = (char*)";107";
+        extern constexpr char *COLOR_BG_RESET                    = (char*)";49";
 
-        extern const std::string COLOR_255_FG = "[38;5;{}m";
-        extern const std::string COLOR_255_BG = "[48;5;{}m";
+        extern constexpr char *COLOR_255_FG = (char*)"[38;5;{}m";
+        extern constexpr char *COLOR_255_BG = (char*)"[48;5;{}m";
 
-        extern const std::string COLOR_RGB_FG = "[38;2;{};{};{}m";
-        extern const std::string COLOR_RGB_BG = "[48;2;{};{};{}m";
+        extern constexpr char *COLOR_RGB_FG = (char*)"[38;2;{};{};{}m";
+        extern constexpr char *COLOR_RGB_BG = (char*)"[48;2;{};{};{}m";
 
     // Screen modes
-        //extern const std::string SCREEN_MODE_40x25_MONOCHROME      = "[=0h";
-        //extern const std::string SCREEN_MODE_40x25_COLOR           = "[=1h";
-        //extern const std::string SCREEN_MODE_80x25_MONOCHROME      = "[=2h";
-        //extern const std::string SCREEN_MODE_80x25_COLOR           = "[=3h";
-        //extern const std::string SCREEN_MODE_320x200_4_COLOR       = "[=4h";
-        //extern const std::string SCREEN_MODE_320x200_MONOCHROME    = "[=5h";
-        //extern const std::string SCREEN_MODE_640x200_MONOCHROME    = "[=6h";
-        //extern const std::string SCREEN_MODE_LINE_WRAP_ON          = "[=7h";
-        //extern const std::string SCREEN_MODE_320x240_COLOR         = "[=13h";
-        //extern const std::string SCREEN_MODE_640x200_16_COLOR      = "[=14h";
-        //extern const std::string SCREEN_MODE_640x350_2_COLOR       = "[=15h";
-        //extern const std::string SCREEN_MODE_640x350_16_COLOR      = "[=16h";
-        //extern const std::string SCREEN_MODE_640x480_2_COLOR       = "[=17h";
-        //extern const std::string SCREEN_MODE_640x480_16_COLOR      = "[=18h";
-        //extern const std::string SCREEN_MODE_320x240_256_COLOR     = "[=19h";
+        //extern constexpr char *SCREEN_MODE_40x25_MONOCHROME      = (char*)"[=0h";
+        //extern constexpr char *SCREEN_MODE_40x25_COLOR           = (char*)"[=1h";
+        //extern constexpr char *SCREEN_MODE_80x25_MONOCHROME      = (char*)"[=2h";
+        //extern constexpr char *SCREEN_MODE_80x25_COLOR           = (char*)"[=3h";
+        //extern constexpr char *SCREEN_MODE_320x200_4_COLOR       = (char*)"[=4h";
+        //extern constexpr char *SCREEN_MODE_320x200_MONOCHROME    = (char*)"[=5h";
+        //extern constexpr char *SCREEN_MODE_640x200_MONOCHROME    = (char*)"[=6h";
+        //extern constexpr char *SCREEN_MODE_LINE_WRAP_ON          = (char*)"[=7h";
+        //extern constexpr char *SCREEN_MODE_320x240_COLOR         = (char*)"[=13h";
+        //extern constexpr char *SCREEN_MODE_640x200_16_COLOR      = (char*)"[=14h";
+        //extern constexpr char *SCREEN_MODE_640x350_2_COLOR       = (char*)"[=15h";
+        //extern constexpr char *SCREEN_MODE_640x350_16_COLOR      = (char*)"[=16h";
+        //extern constexpr char *SCREEN_MODE_640x480_2_COLOR       = (char*)"[=17h";
+        //extern constexpr char *SCREEN_MODE_640x480_16_COLOR      = (char*)"[=18h";
+        //extern constexpr char *SCREEN_MODE_320x240_256_COLOR     = (char*)"[=19h";
 
-        extern const std::string PRIV_SCREEN_MODE_INVIS_CURSOR_ON  = "[?25l";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
-        extern const std::string PRIV_SCREEN_MODE_INVIS_CURSOR_OFF = "[?25h";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
-        extern const std::string PRIV_SCREEN_MODE_RESTORE_SCREEN   = "[?47l";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
-        extern const std::string PRIV_SCREEN_MODE_SAVE_SCREEN      = "[?47h";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
-        //extern const std::string PRIV_SCREEN_MODE_ALT_BUFFER_ON    = "[?1049h"; // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
-        //extern const std::string PRIV_SCREEN_MODE_ALT_BUFFER_OFF   = "[?1049l"; // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        extern constexpr char *PRIV_SCREEN_MODE_INVIS_CURSOR_ON  = (char*)"[?25l";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        extern constexpr char *PRIV_SCREEN_MODE_INVIS_CURSOR_OFF = (char*)"[?25h";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        extern constexpr char *PRIV_SCREEN_MODE_RESTORE_SCREEN   = (char*)"[?47l";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        extern constexpr char *PRIV_SCREEN_MODE_SAVE_SCREEN      = (char*)"[?47h";   // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        //extern constexpr char *PRIV_SCREEN_MODE_ALT_BUFFER_ON    = (char*)"[?1049h"; // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
+        //extern constexpr char *PRIV_SCREEN_MODE_ALT_BUFFER_OFF   = (char*)"[?1049l"; // Private modes work in most terminals, not all, most multiplexers(ex. tmux) will not support them
 
     // keyboard codes
         // no, just no, i am not touching that shit right now
@@ -175,7 +175,7 @@ namespace ANSI {
     std::string EraseCursorToEnd();
     std::string EraseCursorToStart();
     std::string EraseScreen();
-    std::string EraseCursorToEnd();
+    std::string EraseSavedLines();
     std::string EraseCursorToStartK();
     std::string EraseScreenK();
     std::string EraseSavedLinesK();
@@ -235,14 +235,14 @@ namespace ANSI {
     std::string ColorMagentaBg();                               // These return a partial code, pass them to the `graphicsModeSet` function
     std::string ColorCyanBg();                                  // These return a partial code, pass them to the `graphicsModeSet` function
     std::string ColorWhiteBg();                                 // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightBlackFg();                           // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightRedFg();                             // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightGreenFg();                           // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightYellowFg();                          // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightBlueFg();                            // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightMagentaFg();                         // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightCyanFg();                            // These return a partial code, pass them to the `graphicsModeSet` function
-    std::string ColorBrightWhiteFg();                           // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightBlackBg();                           // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightRedBg();                             // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightGreenBg();                           // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightYellowBg();                          // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightBlueBg();                            // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightMagentaBg();                         // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightCyanBg();                            // These return a partial code, pass them to the `graphicsModeSet` function
+    std::string ColorBrightWhiteBg();                           // These return a partial code, pass them to the `graphicsModeSet` function
     std::string ColorBgReset();                                 // These return a partial code, pass them to the `graphicsModeSet` function
 
     std::string Color255FG(uint8_t colorID);
