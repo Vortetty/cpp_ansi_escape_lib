@@ -102,8 +102,8 @@ std::string ANSI::ColorBgReset()         { return ANSI::codes::COLOR_BG_RESET; }
 
 std::string ANSI::Color255FG(uint8_t colorID)                 { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_255_FG, colorID)); }
 std::string ANSI::Color255BG(uint8_t colorID)                 { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_255_BG, colorID)); }
-std::string ANSI::ColorRgbFG(uint8_t r, uint8_t g, uint8_t b) { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_RGB_FG, r, g, b)); }
-std::string ANSI::ColorRgbBG(uint8_t r, uint8_t g, uint8_t b) { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_RGB_BG, r, g, b)); }
+std::string ANSI::ColorRGBFG(uint8_t r, uint8_t g, uint8_t b) { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_RGB_FG, r, g, b)); }
+std::string ANSI::ColorRGBBG(uint8_t r, uint8_t g, uint8_t b) { return fmt::format(ANSI::ESC, fmt::format(ANSI::codes::COLOR_RGB_BG, r, g, b)); }
 
 std::string ANSI::PrivScreenModeInvisCursorOn()  { return fmt::format(ANSI::ESC, ANSI::codes::PRIV_SCREEN_MODE_INVIS_CURSOR_ON); }
 std::string ANSI::PrivScreenModeInvisCursorOff() { return fmt::format(ANSI::ESC, ANSI::codes::PRIV_SCREEN_MODE_INVIS_CURSOR_OFF); }
